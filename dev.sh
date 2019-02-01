@@ -14,7 +14,7 @@ if [ ! -f "$lock" ]; then
     rm -f "$unlock"
 
 
-    # Renaming
+    # Renaming back
 
     if [ -f "$rules_dir/maybe_rename.tsv" ]; then
         while IFS=$'\t' read -r from to
