@@ -1,0 +1,26 @@
+{
+  "name": "devSystem",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "author": "Vladislav Luzan",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "autoprefixer": "^9.4.7",
+    "babel-loader": "^8.0.4",
+    "codemirror": "^5.40.2",
+    "css-loader": "^2.1.0",
+    "cssnano": "^4.1.8",
+    "mini-css-extract-plugin": "^0.5.0",
+    "postcss": "^7.0.14",
+    "postcss-loader": "^3.0.0",
+    "uglify-js": "^3.4.9",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
