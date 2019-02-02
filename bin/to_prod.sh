@@ -88,20 +88,37 @@ do_the_stuff() {
         fi
 
 
+
+        # Adds style.css metadata to the beginning of the minified style.css, because cssnano removes all comments.
+
+        if [ -f "$rules_dir/has_style_css" ]; then
+            regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Description:((.|\n)*?)Version:((.|\n)*?)(\*\/)"
+            theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.dev.css")
+
+            echo -e "$theme_metadata\n$(cat "$project_ROOT/style.css")" > "$project_ROOT/style.css"
+        fi
+
+
     else
         echo -e "\nIt's already prod!\n"
     fi
 }
 
 
-
-if [ -d "webpack/node_modules" ]; then
-    do_the_stuff
-else
-    read -p "webpack/node_modules is not found! Install it? (y/n) " -n 1 -r
-    echo # new line
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        npm install --prefix "webpack/"
+if [ -x "$(command -v pcregrep)" ]; then
+    if [ -d "webpack/node_modules" ]; then
         do_the_stuff
+    else
+        read -p "webpack/node_modules is not found. Install it? (y/n) " -n 1 -r
+        echo # new line
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            npm install --prefix "webpack/"
+            do_the_stuff
+        fi
     fi
+else
+    RED='\033[0;31m'
+    NC='\033[0m'
+
+    echo -e "\n${RED}pcregrep${NC} not found. Install it! \n\n Aborted."
 fi

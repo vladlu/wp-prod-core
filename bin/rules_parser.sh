@@ -32,6 +32,10 @@ do
     'webpack')
         echo "$line" | awk "$awk_delimiter" '{print $4 $3}'                        >> "$rules_dir/mkdir.tsv"
         echo "$line" | awk "$awk_delimiter" '{print $4 $2 "\t"             $4 $3}' >> "$rules_dir/maybe_rename.tsv"
-        echo "$line" | awk "$awk_delimiter" '{print $4 $3 "\t" "../../../" $4 $2}' >> "$file";;
+        echo "$line" | awk "$awk_delimiter" '{print $4 $3 "\t" "../../../" $4 $2}' >> "$file"
+
+        if [[ $(echo "$line" | awk "$awk_delimiter" '{print $3}') == "style.css" ]]; then
+            touch "$rules_dir/has_style_css"
+        fi;;
     esac
 done < "../_devSystem/rules"
