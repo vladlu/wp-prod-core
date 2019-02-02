@@ -18,7 +18,7 @@ if [ -d "webpack/node_modules" ]; then
         touch "$lock"
         rm -f "$unlock"
 
-        utilities/rules_parser "$rules_dir"
+        bin/rules_parser.sh "$rules_dir"
 
 
 
