@@ -13,8 +13,8 @@ unlock="locks/dev"
 cd $devSystem_ROOT
 
 
-if [ -d "webpack/node_modules" ]; then
-    if [ ! -f "$lock" ]; then
+do_the_stuff() {
+        if [ ! -f "$lock" ]; then
         touch "$lock"
         rm -f "$unlock"
 
@@ -91,6 +91,17 @@ if [ -d "webpack/node_modules" ]; then
     else
         echo -e "\nIt's already prod!\n"
     fi
+}
+
+
+
+if [ -d "webpack/node_modules" ]; then
+    do_the_stuff
 else
-    echo -e "\nwebpack/node_modules is not found! Add it by running \"npm install\" in \"webpack\" directory.\n"
+    read -p "webpack/node_modules is not found! Install it? (y/n) " -n 1 -r
+    echo # new line
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        npm install --prefix "webpack/"
+        do_the_stuff
+    fi
 fi
