@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-cd "$SCRIPTPATH"
+cd "$SCRIPTPATH/.."
 
 lock="locks/dev"
 unlock="locks/prod"

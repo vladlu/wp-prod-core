@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-cd "$SCRIPTPATH"
+cd "$SCRIPTPATH/.."
 
 lock="locks/prod"
 unlock="locks/dev"
@@ -13,7 +13,7 @@ if [ -d "webpack/node_modules" ]; then
         touch "$lock"
         rm -f "$unlock"
 
-        utilities/rules_parser "$rules_dir"
+        ../utilities/rules_parser "$rules_dir"
 
 
 
