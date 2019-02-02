@@ -34,4 +34,4 @@ do
         echo "$line" | awk "$awk_delimiter" '{print $4 $2 "\t"          $4 $3}' >> "$rules_dir/maybe_rename.tsv"
         echo "$line" | awk "$awk_delimiter" '{print $4 $3 "\t" "../../" $4 $2}' >> "$file";;
     esac
-done < "rules"
+done < "../_devSystem/rules"

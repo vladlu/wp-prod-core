@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-cd "$SCRIPTPATH/.."
+devSystem_ROOT="$SCRIPTPATH/.."
+project_ROOT="$devSystem_ROOT/../.."
+
+rules_dir="$devSystem_ROOT/.rules.d"
 
 lock="locks/dev"
 unlock="locks/prod"
 
-rules_dir='.rules.d'
+
+cd $devSystem_ROOT
 
 
 if [ ! -f "$lock" ]; then
@@ -20,7 +24,7 @@ if [ ! -f "$lock" ]; then
         while IFS=$'\t' read -r from to
         do
             if [[ "$from" != "dev/"* ]] && [[ "$to" != "dev/"* ]]; then
-                mv "../$from" "../$to"
+                mv "$project_ROOT/$from" "$project_ROOT/$to"
             fi
         done < "$rules_dir/maybe_rename.tsv"
     fi
@@ -30,7 +34,7 @@ if [ ! -f "$lock" ]; then
     if [ -f "$rules_dir/substitute.tsv" ]; then
         while IFS=$'\t' read -r dev prod file
         do
-            sed -i '' -e "s/$prod/$dev/g" ../"$file"
+            sed -i '' -e "s/$prod/$dev/g" "$project_ROOT/$file"
         done < "$rules_dir/substitute.tsv"
     fi
 
