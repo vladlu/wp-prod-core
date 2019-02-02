@@ -41,5 +41,5 @@ if [ ! -f "$lock" ]; then
 
     rm -rf "$rules_dir"
 else
-    echo -e "\nWhoops. It's already dev!\n"
+    echo -e "\nIt's already dev!\n"
 fi
