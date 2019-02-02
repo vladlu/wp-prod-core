@@ -87,5 +87,5 @@ if [ -d "webpack/node_modules" ]; then
         echo -e "\nWhoops. It's already prod!\n"
     fi
 else
-    echo -e "\nwebpack/node_modules is not found! Add it running \"npm install\" in \"webpack\" directory\n"
+    echo -e "\nwebpack/node_modules is not found! Add it by running \"npm install\" in \"webpack\" directory.\n"
 fi
