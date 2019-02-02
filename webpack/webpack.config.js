@@ -12,7 +12,7 @@ let files = {};
 
 
 function load_files() {
-    const file_to_read = '../.rules.d/webpack.tsv',
+    const file_to_read = '../../.rules.d/webpack.tsv',
           file_text    = fs.readFileSync(file_to_read, 'utf-8'),
           lines        = file_text.split('\n');
 
