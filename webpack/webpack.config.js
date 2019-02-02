@@ -1,8 +1,6 @@
 const  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
        autoprefixer         = require('autoprefixer'),
-       cssnano              = require('cssnano'),
-
-       UglifyJSPlugin       = require('uglifyjs-webpack-plugin');
+       cssnano              = require('cssnano');
 
 
 
@@ -64,7 +62,6 @@ const Main = {
         ],
     },
     plugins: [
-        new UglifyJSPlugin(),
         new MiniCssExtractPlugin(),
     ],
 };
