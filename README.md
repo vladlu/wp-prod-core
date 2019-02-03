@@ -28,6 +28,9 @@ You can use comments in any format you like — only lines that contain one of t
  
     webpack
         from  to  [common_directory]
+        
+    install
+        name_of_node_module
  
 ### What does `webpack` rule do?
  
@@ -48,6 +51,6 @@ You can use comments in any format you like — only lines that contain one of t
 
 #
 
-Version: 1.3.3
+Version: 1.4.0
 
 License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)

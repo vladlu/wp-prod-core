@@ -69,8 +69,24 @@ do_the_stuff() {
         fi
 
 
+
         cd webpack
+
+
+        # Installs additional node modules
+
+        if [ -f "$rules_dir/install.tsv" ]; then
+            while IFS=$'\t' read -r modulename
+            do
+                echo -e "\nIntalling $modulename module\n"
+
+                npm install "$modulename"
+            done < "$rules_dir/install.tsv"
+        fi
+
+
         node start.js
+
 
 
         # Workaround for css file names from webpack
@@ -89,7 +105,7 @@ do_the_stuff() {
 
 
 
-        # Adds style.css metadata to the beginning of the minified style.css, because cssnano removes all comments.
+        # Adds theme metadata to the beginning of the minified style.css, because cssnano removes all comments.
 
         if [ -f "$rules_dir/has_style_css" ]; then
             regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Description:((.|\n)*?)Version:((.|\n)*?)(\*\/)"
