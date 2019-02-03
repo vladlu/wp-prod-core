@@ -103,7 +103,7 @@ do_the_stuff() {
         # Adds theme metadata to the beginning of the minified style.css, because cssnano removes all comments.
 
         if [ -f "$rules_dir/has_style_css" ]; then
-            regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Description:((.|\n)*?)Version:((.|\n)*?)(\*\/)"
+            regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Author:((.|\n)*?)(\*\/)"
             theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.dev.css")
 
             echo -e "$theme_metadata\n$(cat "$project_ROOT/style.css")" > "$project_ROOT/style.css"
