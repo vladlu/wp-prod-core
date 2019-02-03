@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-wp-prod_ROOT="$SCRIPTPATH/.."
-project_ROOT="$wp-prod_ROOT/../.."
+wp_prod_ROOT="$SCRIPTPATH/.."
+project_ROOT="$wp_prod_ROOT/../.."
 
-rules_dir="$wp-prod_ROOT/.rules.d"
+rules_dir="$wp_prod_ROOT/.rules.d"
 
 lock="locks/prod"
 unlock="locks/dev"
 
 
-cd $wp-prod_ROOT
+cd $wp_prod_ROOT
 
 
 do_the_stuff() {
