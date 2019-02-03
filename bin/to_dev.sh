@@ -30,6 +30,7 @@ if [ ! -f "$lock" ]; then
     fi
 
 
+    # Substitute
 
     if [ -f "$rules_dir/substitute.tsv" ]; then
         while IFS=$'\t' read -r dev prod file

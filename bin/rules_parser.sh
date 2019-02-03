@@ -18,8 +18,6 @@ do
     file="$rules_dir/$cmd.tsv"
 
     case "$cmd" in
-    'new_dir')
-        echo "$line" | awk "$awk_delimiter" '{print $2}' >> "$file";;
     'substitute')
         echo "$line" | awk "$awk_delimiter" '{print $2 "\t" $3 "\t" $4}' >> "$file";;
     'copy')

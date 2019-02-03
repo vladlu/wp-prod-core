@@ -22,6 +22,19 @@ do_the_stuff() {
 
 
 
+        # Installs additional node modules
+
+        if [ -f "$rules_dir/install.tsv" ]; then
+            while IFS=$'\t' read -r modulename
+            do
+                echo -e "\nIntalling $modulename module\n"
+
+                npm install --prefix webpack "$modulename"
+            done < "$rules_dir/install.tsv"
+        fi
+
+
+
         # mkdir
 
         if [ -f "$rules_dir/mkdir.tsv" ]; then
@@ -45,6 +58,8 @@ do_the_stuff() {
 
 
 
+        # Substitute
+
         if [ -f "$rules_dir/substitute.tsv" ]; then
             while IFS=$'\t' read -r dev prod file
             do
@@ -53,13 +68,7 @@ do_the_stuff() {
         fi
 
 
-        if [ -f "$rules_dir/new_dir.tsv" ]; then
-            while IFS=$'\t' read -r dir
-            do
-                mkdir -p "$project_ROOT/$dir"
-            done < "$rules_dir/new_dir.tsv"
-        fi
-
+        # Copy
 
         if [ -f "$rules_dir/copy.tsv" ]; then
             while IFS=$'\t' read -r from to
@@ -71,20 +80,6 @@ do_the_stuff() {
 
 
         cd webpack
-
-
-        # Installs additional node modules
-
-        if [ -f "$rules_dir/install.tsv" ]; then
-            while IFS=$'\t' read -r modulename
-            do
-                echo -e "\nIntalling $modulename module\n"
-
-                npm install "$modulename"
-            done < "$rules_dir/install.tsv"
-        fi
-
-
         node start.js
 
 
