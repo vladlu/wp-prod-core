@@ -48,6 +48,6 @@ You can use comments in any format you like — only lines that contain one of t
 
 #
 
-Version: 1.3.0
+Version: 1.3.1
 
-License: [MIT](https://github.com/vladlu/devSystem/blob/master/LICENSE)
+License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)

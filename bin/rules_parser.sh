@@ -38,4 +38,4 @@ do
             touch "$rules_dir/has_style_css"
         fi;;
     esac
-done < "../_devSystem/rules"
+done < "../_wp-prod/rules"
