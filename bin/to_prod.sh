@@ -14,11 +14,11 @@ cd $wp_prod_ROOT
 
 
 do_the_stuff() {
-        if [ ! -f "$lock" ]; then
+    if [ ! -f "$lock" ]; then
         touch "$lock"
         rm -f "$unlock"
 
-        bin/rules_parser.sh "$rules_dir"
+        bin/rules_parser.sh "$rules_dir" "$project_ROOT"
 
 
 
@@ -27,9 +27,14 @@ do_the_stuff() {
         if [ -f "$rules_dir/install.tsv" ]; then
             while IFS=$'\t' read -r modulename
             do
-                echo -e "\nIntalling $modulename module\n"
+                if [ ! -f "locks/$modulename" ]; then
+                    echo -e "\nIntalling $modulename module\n"
 
-                npm install --prefix webpack "$modulename"
+                    npm install --prefix webpack "$modulename"
+
+
+                    touch "locks/$modulename" # Locks the module to not install it again
+                fi
             done < "$rules_dir/install.tsv"
         fi
 
@@ -63,7 +68,7 @@ do_the_stuff() {
         if [ -f "$rules_dir/substitute.tsv" ]; then
             while IFS=$'\t' read -r dev prod file
             do
-                sed -i '' -e "s/$dev/$prod/g" "$project_ROOT/$file"
+                bin/replace.sh "$dev" "$prod" "$project_ROOT/$file"
             done < "$rules_dir/substitute.tsv"
         fi
 
@@ -108,8 +113,6 @@ do_the_stuff() {
 
             echo -e "$theme_metadata\n$(cat "$project_ROOT/style.css")" > "$project_ROOT/style.css"
         fi
-
-
     else
         echo -e "\nIt's already prod!\n"
     fi

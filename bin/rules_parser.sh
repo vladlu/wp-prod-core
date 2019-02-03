@@ -6,7 +6,8 @@
 # in the specified dir & subdirs if they don't have it.
 ##
 
-rules_dir=$1
+rules_dir="$1"
+project_ROOT="$2"
 awk_delimiter="-F[ \t]*(\t)+[ \t]*"
 
 mkdir "$rules_dir"
@@ -39,3 +40,8 @@ do
         echo "$line" | awk "$awk_delimiter" '{print $2}' >> "$file";;
     esac
 done < "../_wp-prod/rules"
+
+
+# Expansions
+
+find "$rules_dir" -mindepth 1 -exec bin/replace.sh '\[m\]' "dev/wp-prod/webpack/node_modules" {} \;
