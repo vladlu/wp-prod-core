@@ -37,5 +37,7 @@ do
         if [[ $(echo "$line" | awk "$awk_delimiter" '{print $3}') == "style.css" ]]; then
             touch "$rules_dir/has_style_css"
         fi;;
+    'install')
+        echo "$line" | awk "$awk_delimiter" '{print $2}' >> "$file";;
     esac
 done < "../_wp-prod/rules"
