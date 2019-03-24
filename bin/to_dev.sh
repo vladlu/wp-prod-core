@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -Eeuo pipefail
+
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 wp_prod_ROOT="$SCRIPTPATH/.."
