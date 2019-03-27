@@ -117,7 +117,8 @@ do_the_stuff() {
             echo -e "$theme_metadata\n$(cat "$project_ROOT/style.css")" > "$project_ROOT/style.css"
         fi
     else
-        echo -e >&2 "\nIt's already prod! \n"
+        echo -e >&2 "\nIt's already prod! \nTerminated.\n"
+        exit 1
     fi
 }
 
@@ -137,5 +138,6 @@ else
     RED='\033[0;31m'
     NC='\033[0m'
 
-    echo -e >&2 "\n${RED}pcregrep${NC} not found. Install it! \n"
+    echo -e >&2 "\n${RED}pcregrep${NC} not found. Install it! \nTerminated.\n"
+    exit 1
 fi
