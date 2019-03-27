@@ -27,7 +27,7 @@ load_files();
 const Main = {
     entry: files,
     output: {
-        path: __dirname + '/../../../',
+        path: __dirname + '/../../../../',
         filename: '[name]'
     },
     module: {
