@@ -5,7 +5,7 @@ trap 'echo >&2 "ERROR on line $LINENO ($(tail -n+$LINENO $0 | head -n1)). Termin
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 wp_prod_ROOT="$SCRIPTPATH/.."
-project_ROOT="$wp_prod_ROOT/../.."
+project_ROOT="$wp_prod_ROOT/../../.."
 
 rules_dir="$wp_prod_ROOT/.rules.d"
 
