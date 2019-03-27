@@ -137,5 +137,5 @@ else
     RED='\033[0;31m'
     NC='\033[0m'
 
-    echo -e "\n${RED}pcregrep${NC} not found. Install it! \n\n Aborted."
+    echo -e "\n${RED}pcregrep${NC} not found. Install it! \n\n Terminated."
 fi
