@@ -41,7 +41,7 @@ do
     'install')
         echo "$line" | awk "$awk_delimiter" '{print $2}' >> "$file";;
     esac
-done < "../_wp-prod/rules"
+done < "../rules"
 
 
 # Expansions
