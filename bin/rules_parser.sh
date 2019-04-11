@@ -3,11 +3,6 @@ set -Eeuo pipefail
 trap 'echo >&2 "ERROR on line $LINENO ($(tail -n+$LINENO $0 | head -n1)). Terminated."' ERR
 
 
-##
-# This script adds a newline to the end of all *.tsv files 
-# in the specified dir & subdirs if they don't have it.
-##
-
 rules_dir="$1"
 project_ROOT="$2"
 awk_delimiter="-F[ \t]*(\t)+[ \t]*"
