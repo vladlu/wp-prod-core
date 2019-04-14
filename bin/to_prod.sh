@@ -24,6 +24,8 @@ do_the_stuff() {
         bin/rules_parser.sh "$rules_dir" "$project_ROOT"
 
 
+        type="$(head -1 "$wp_prod_ROOT/../rules")" # "plugin" or "theme"
+
 
         # Installs additional node modules
 
@@ -110,7 +112,7 @@ do_the_stuff() {
 
         # Adds theme metadata to the beginning of the minified style.css, because cssnano removes all comments.
 
-        if [ -f "$rules_dir/has_style_css" ]; then
+        if [ "$type" = "theme" ] && [ -f "$rules_dir/has_style_css" ]; then
             regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Author:((.|\n)*?)(\*\/)"
             theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.dev.css")
 
