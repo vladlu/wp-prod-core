@@ -12,10 +12,9 @@
   
 ### Formatting
  
-1. The very first line of the rules file should contain either "plugin" or "theme" string.
-
-2. At least one tab between items. You can add additional tabs and spaces to give it beautiful formatting.
-3. You can use comments in any desired format — only the lines that contain one of the rules will be interpreted.
+- The very first line of the rules file should contain either "plugin" or "theme" string.
+- At least one tab between items. You can add additional tabs and spaces to give it beautiful formatting.
+- You can use comments in any desired format — only the lines that contain one of the rules will be interpreted.
 
  
 ### The list of available rules
