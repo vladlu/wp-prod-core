@@ -14,10 +14,14 @@ cd $wp_prod_ROOT
 
 
 do_the_stuff() {
-    bin/rules_parser.sh "$rules_dir" "$project_ROOT"
-
+    if [ ! -d "locks" ]; then
+        mkdir "locks"
+    fi
 
     type="$(head -1 "$wp_prod_ROOT/../rules")" # "plugin" or "theme"
+
+
+    bin/rules_parser.sh "$rules_dir" "$project_ROOT"
 
 
     # Installs additional node modules

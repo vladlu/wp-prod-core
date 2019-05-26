@@ -48,6 +48,6 @@
 
 #
 
-Version: 1.9.0
+Version: 1.9.1
 
 License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)
