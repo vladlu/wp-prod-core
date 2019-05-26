@@ -5,6 +5,7 @@ trap 'echo >&2 "ERROR on line $LINENO ($(tail -n+$LINENO $0 | head -n1)). Termin
 
 rules_dir="$1"
 project_ROOT="$2"
+type="$3"
 awk_delimiter="-F[ \t]*(\t)+[ \t]*"
 
 mkdir "$rules_dir"
@@ -55,11 +56,21 @@ do
             line=$( echo -e "$column1 \t $column2 \t $column3" )
         fi
 
-        echo "$line" | awk "$awk_delimiter" '{print $3 "\t" "../../../../" $2}' >> "$file"
 
-        if [[ $(basename $(echo "$line" | awk "$awk_delimiter" '{print $2}')) == "style.css" ]]; then
-            touch "$rules_dir/has_style_css"
-        fi;;
+        if [[ $(echo "$line" | awk "$awk_delimiter" '{print $2}') == "style.css" ]] &&
+           [[ "$type" == "theme" ]]; then
+            if [[ ! -f "$project_ROOT/style.dev.css" ]]; then
+                touch "$rules_dir/theme_style_css"
+
+                echo -e "style.css\t../../../../style.dev.css" >> "$file"
+                continue
+             else
+                continue
+             fi
+        fi
+
+
+        echo "$line" | awk "$awk_delimiter" '{print $3 "\t" "../../../../" $2}' >> "$file";;
 
     'install')
 

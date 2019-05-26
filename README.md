@@ -5,7 +5,8 @@
 # How to use
 
 [under construction]  
-*((add examples somewhere below (but try to avoid their downloading)))* 
+*((say something about style.dev.css with which webpack rule works differently))*  
+*((add examples somewhere below (but try to avoid their downloading))* 
 
 # Rules
 
@@ -48,6 +49,6 @@
 
 #
 
-Version: 1.9.2
+Version: 1.10.0
 
 License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)

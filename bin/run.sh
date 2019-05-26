@@ -18,10 +18,11 @@ do_the_stuff() {
         mkdir "locks"
     fi
 
+
     type="$(head -1 "$wp_prod_ROOT/../rules")" # "plugin" or "theme"
 
+    bin/rules_parser.sh "$rules_dir" "$project_ROOT" "$type"
 
-    bin/rules_parser.sh "$rules_dir" "$project_ROOT"
 
 
     # Installs additional node modules
@@ -64,6 +65,17 @@ do_the_stuff() {
 
 
 
+    # Theme's style.css:
+    # Renames.
+
+    if [ -f "$rules_dir/theme_style_css" ]; then
+        mv "$project_ROOT/style.css" "$project_ROOT/style.dev.css"
+    fi
+
+
+
+    # Runs webpack and uglifyjs
+
     cd webpack
     node start.js
 
@@ -72,8 +84,6 @@ do_the_stuff() {
     # Workaround for css file names from webpack
 
     cd "$SCRIPTPATH"
-
-
     if [ -f "$rules_dir/webpack.tsv" ]; then
         while IFS=$'\t' read -r to from
         do
@@ -85,19 +95,19 @@ do_the_stuff() {
 
 
 
+    # Theme's style.css:
     # Adds theme metadata to the beginning of the minified style.css because cssnano removes all the comments.
 
-    if [ "$type" = "theme" ] && [ -f "$rules_dir/has_style_css" ]; then
+    if [ -f "$rules_dir/theme_style_css" ]; then
         regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Author:((.|\n)*?)(\*\/)"
-        theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.css")
+        theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.dev.css")
 
-        echo -e "$theme_metadata\n$(cat "$project_ROOT/style.min.css")" > "$project_ROOT/style.min.css"
+        echo -e "$theme_metadata\n$(cat "$project_ROOT/style.css")" > "$project_ROOT/style.css"
     fi
 
 
 
     # Deletes generated rules
-
     rm -rf "$rules_dir"
 }
 
