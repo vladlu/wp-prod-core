@@ -89,9 +89,9 @@ do_the_stuff() {
 
     if [ "$type" = "theme" ] && [ -f "$rules_dir/has_style_css" ]; then
         regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Author:((.|\n)*?)(\*\/)"
-        theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.dev.css")
+        theme_metadata=$(pcregrep -Mo "$regex" "$project_ROOT/style.css")
 
-        echo -e "$theme_metadata\n$(cat "$project_ROOT/style.css")" > "$project_ROOT/style.css"
+        echo -e "$theme_metadata\n$(cat "$project_ROOT/style.min.css")" > "$project_ROOT/style.min.css"
     fi
 
 
