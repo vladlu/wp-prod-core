@@ -1,21 +1,21 @@
-const  MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-       autoprefixer         = require('autoprefixer'),
-       cssnano              = require('cssnano');
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ),
+      autoprefixer         = require( 'autoprefixer' ),
+      cssnano              = require( 'cssnano' );
 
 
 
 
-const fs = require('fs');
+const fs = require( 'fs' );
 let files = {};
 
 
 function load_files() {
     const file_to_read = '../.rules.d/webpack.tsv',
-          file_text    = fs.readFileSync(file_to_read, 'utf-8'),
-          lines        = file_text.split('\n');
+          file_text    = fs.readFileSync( file_to_read, 'utf-8' ),
+          lines        = file_text.split( '\n' );
 
-    for (let i = 0; i < lines.length - 1; i++) {
-        let entities         = lines[i].split('\t');
+    for ( let i = 0; i < lines.length - 1; i++ ) {
+        let entities         = lines[i].split( '\t' );
         files[ entities[0] ] = entities[1]
     }
 }
@@ -67,7 +67,7 @@ const Main = {
 };
 
 
-// Exports Array of Configurations
+// Exports an array of configurations.
 module.exports = [
     Main
 ];

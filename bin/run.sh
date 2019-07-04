@@ -19,13 +19,13 @@ do_the_stuff() {
     fi
 
 
-    type="$(head -1 "$wp_prod_ROOT/../rules")" # "plugin" or "theme"
+    type="$(head -1 "$wp_prod_ROOT/../rules")" # Assumed that it can be either "plugin" or "theme".
 
     bin/rules_parser.sh "$rules_dir" "$project_ROOT" "$type"
 
 
 
-    # Installs additional node modules
+    # Installs additional node modules.
 
     if [ -f "$rules_dir/install.tsv" ]; then
         while IFS=$'\t' read -r modulename
@@ -36,14 +36,14 @@ do_the_stuff() {
                 npm install --prefix webpack "$modulename"
 
 
-                touch "locks/$modulename" # Locks the module to not install it again
+                touch "locks/$modulename" # Locks the module to not install it again.
             fi
         done < "$rules_dir/install.tsv"
     fi
 
 
 
-    # mkdir
+    # mkdir.
 
     if [ -f "$rules_dir/mkdir.tsv" ]; then
         while IFS='' read -r filepath
@@ -54,7 +54,7 @@ do_the_stuff() {
 
 
 
-    # Copy
+    # Copy.
 
     if [ -f "$rules_dir/copy.tsv" ]; then
         while IFS=$'\t' read -r from to
@@ -65,8 +65,8 @@ do_the_stuff() {
 
 
 
-    # Theme's style.css:
-    # Renames.
+    # If theme's style.css:
+    # - Renames.
 
     if [ -f "$rules_dir/theme_style_css" ]; then
         mv "$project_ROOT/style.css" "$project_ROOT/style.dev.css"
@@ -74,14 +74,14 @@ do_the_stuff() {
 
 
 
-    # Runs webpack and uglifyjs
+    # Runs Webpack and UglifyJS.
 
     cd webpack
     node start.js
 
 
 
-    # Workaround for css file names from webpack
+    # Workaround for css file names from the Webpack.
 
     cd "$SCRIPTPATH"
     if [ -f "$rules_dir/webpack.tsv" ]; then
@@ -95,8 +95,8 @@ do_the_stuff() {
 
 
 
-    # Theme's style.css:
-    # Adds theme metadata to the beginning of the minified style.css because cssnano removes all the comments.
+    # If theme's style.css:
+    # - Adds theme metadata to the beginning of the minified style.css because cssnano removes all the comments.
 
     if [ -f "$rules_dir/theme_style_css" ]; then
         regex="(\/\*)((.|\n)*?)Theme Name:((.|\n)*?)Author:((.|\n)*?)(\*\/)"
@@ -107,7 +107,7 @@ do_the_stuff() {
 
 
 
-    # Deletes generated rules
+    # Deletes generated rules.
     rm -rf "$rules_dir"
 }
 
@@ -117,7 +117,7 @@ if [ -x "$(command -v pcregrep)" ]; then
         do_the_stuff
     else
         read -p "node_modules not found. Install them? (y/n) " -n 1 -r
-        echo # new line
+        echo # Adds a new line.
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             npm install --prefix "webpack/"
             do_the_stuff

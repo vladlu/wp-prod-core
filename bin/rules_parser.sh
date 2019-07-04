@@ -24,16 +24,16 @@ do
 
     'uglifyjs')
 
-        # If the line has 3 columns
+        # If the line has 3 columns.
         if [[ $(echo "$line" | awk "$awk_delimiter" '{print $3}') ]]; then
             echo "$line" | awk "$awk_delimiter" '{print $3}' >> "$rules_dir/mkdir.tsv"
-        # Otherwise it's assumed that it has 2 columns
+        # Otherwise it's assumed that it has 2 columns.
         else
-            # Then converts it to 3 columns
+            # Then converts it to 3 columns.
             column1=$(echo "$line" | awk "$awk_delimiter" '{print $1}')
             column2=$(echo "$line" | awk "$awk_delimiter" '{print $2}')
             extension=${column2##*.}
-                    # Adds dev before the extension so the origin file will be renamed to it on prod conversion
+                    # Adds dev before the extension so the origin file will be renamed to it on prod conversion.
             column3="${column2%.$extension}.min.$extension"
             line=$( echo -e "$column1 \t $column2 \t $column3" )
         fi
@@ -42,16 +42,16 @@ do
 
     'webpack')
 
-        # If the line has 3 columns
+        # If the line has 3 columns.
         if [[ $(echo "$line" | awk "$awk_delimiter" '{print $3}') ]]; then
             echo "$line" | awk "$awk_delimiter" '{print $3}' >> "$rules_dir/mkdir.tsv"
-        # Otherwise it's assumed that it has 2 columns
+        # Otherwise it's assumed that it has 2 columns.
         else
-            # Then converts it to 3 columns
+            # Then converts it to 3 columns.
             column1=$(echo "$line" | awk "$awk_delimiter" '{print $1}')
             column2=$(echo "$line" | awk "$awk_delimiter" '{print $2}')
             extension=${column2##*.}
-                    # Adds dev before the extension so the origin file will be renamed to it on prod conversion
+                    # Adds dev before the extension so the origin file will be renamed to it on prod conversion.
             column3="${column2%.$extension}.min.$extension"
             line=$( echo -e "$column1 \t $column2 \t $column3" )
         fi
@@ -80,6 +80,6 @@ do
 done < "../rules"
 
 
-# Expansions
+# Expansions.
 
 find "$rules_dir" -mindepth 1 -exec bin/replace.sh '\[m\]' "dev/wp-prod/wp-prod/webpack/node_modules" {} \;
