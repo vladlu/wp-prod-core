@@ -61,7 +61,7 @@ if ( fs.existsSync( '../.rules.d/uglifyjs.tsv' ) ) {
 if ( fs.existsSync( '../.rules.d/webpack.tsv' ) ) {
     const webpack = require( 'webpack' );
 
-    const watching = webpack( require( './webpack.config' ), ( err, stats ) => {
+    webpack( require( './webpack.config' ), ( err, stats ) => {
         if ( err || stats.hasErrors() ) {
             console.error( 'Webpack: FAIL\nRun "npx webpack" in this directory to get debug info.' );
         } else {
