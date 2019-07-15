@@ -116,8 +116,7 @@ if [ -x "$(command -v pcregrep)" ]; then
     if [ -d "webpack/node_modules" ]; then
         do_the_stuff
     else
-        read -p "node_modules not found. Install them? (y/n) " -n 1 -r
-        echo # Adds a new line.
+        eecho -e "node_modules not found. Installing... \n\n"
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             npm install --prefix "webpack/"
             do_the_stuff
