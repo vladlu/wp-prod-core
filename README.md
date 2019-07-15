@@ -49,6 +49,6 @@
 
 #
 
-Version: 1.11.14
+Version: 1.11.15
 
 License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)
