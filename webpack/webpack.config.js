@@ -1,6 +1,8 @@
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ),
-      autoprefixer         = require( 'autoprefixer' ),
-      cssnano              = require( 'cssnano' );
+const path = require( 'path' ),
+
+    MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ),
+    autoprefixer         = require( 'autoprefixer' ),
+    cssnano              = require( 'cssnano' );
 
 
 
@@ -11,8 +13,8 @@ let files = {};
 
 function load_files() {
     const file_to_read = '../.rules.d/webpack.tsv',
-          file_text    = fs.readFileSync( file_to_read, 'utf-8' ),
-          lines        = file_text.split( '\n' );
+        file_text    = fs.readFileSync( file_to_read, 'utf-8' ),
+        lines        = file_text.split( '\n' );
 
     for ( let i = 0; i < lines.length - 1; i++ ) {
         let entities         = lines[i].split( '\t' );
@@ -65,6 +67,11 @@ const Main = {
                 ],
             },
         ],
+    },
+    resolve: {
+        modules: [
+            path.resolve(__dirname, 'node_modules/'),
+        ]
     },
     plugins: [
         new MiniCssExtractPlugin(),
