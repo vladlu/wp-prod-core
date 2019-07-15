@@ -114,10 +114,9 @@ do_the_stuff() {
 
 if [ -x "$(command -v pcregrep)" ]; then
     if [ ! -d "webpack/node_modules" ]; then
-        echo -e "node_modules not found. Installing... \n\n"
+        echo -e "node_modules not found. Installing... \n"
         npm install --prefix "webpack/"
     fi
-    g
     do_the_stuff
 else
     RED='\033[0;31m'
