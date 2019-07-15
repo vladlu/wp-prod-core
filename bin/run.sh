@@ -113,15 +113,12 @@ do_the_stuff() {
 
 
 if [ -x "$(command -v pcregrep)" ]; then
-    if [ -d "webpack/node_modules" ]; then
-        do_the_stuff
-    else
-        eecho -e "node_modules not found. Installing... \n\n"
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            npm install --prefix "webpack/"
-            do_the_stuff
-        fi
+    if [ ! -d "webpack/node_modules" ]; then
+        echo -e "node_modules not found. Installing... \n\n"
+        npm install --prefix "webpack/"
     fi
+    g
+    do_the_stuff
 else
     RED='\033[0;31m'
     NC='\033[0m'
