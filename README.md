@@ -1,14 +1,6 @@
 # About
 
-This is a dev system for WordPress developers which makes life easier. 
-
-Just create rules and run it.
-
-# How to use
-
-[under construction]  
-*((say something about style.dev.css with which webpack rule works differently))*  
-*((add examples somewhere below (but try to avoid their downloading))* 
+This is a core for [wp-prod](https://github.com/vladlu/wp-prod/) system. 
 
 # Rules
 
