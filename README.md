@@ -24,7 +24,7 @@ webpack
 install
     npm_module_name
 ```
-You can see a sample of rules in [rules.sample](https://github.com/vladlu/wp-prod-core/blob/master/rules.sample) file.
+You can see a sample of rules in a [rules.sample](https://github.com/vladlu/wp-prod-core/blob/master/rules.sample) file.
 
 ### What does the `webpack` rule do?
 ```
@@ -52,6 +52,6 @@ browserslist: cover 95%
 
 #
 
-Version: 1.14.6
+Version: 1.14.7
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
