@@ -33,7 +33,11 @@
 ### What does `webpack` rule do?
  
     JS:  babel (with minification)
-    CSS: autoprefixer -> cssnano
+    CSS: postcss-preset-env -> autoprefixer -> cssnano
+    
+    ____________________________
+    
+    browserslist: cover 95%
 
 ### Expansions
 
@@ -47,10 +51,11 @@
     with the same name but with `.min` before its extension,
     so `file.css` will generate a `file.min.css` file.
     
-  - It uses browserslist with `cover 95%`. As for now, it can't be changed in a convenient way.
+  - It uses browserslist with `cover 95%` query. As for now, it can't
+    be changed in a convenient way.
 
 #
 
-Version: 1.12.0
+Version: 1.13.0
 
 License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)

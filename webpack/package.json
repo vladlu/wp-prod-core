@@ -17,6 +17,7 @@
     "mini-css-extract-plugin": "^0.7.0",
     "postcss": "^7.0.17",
     "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
     "regenerator-runtime": "^0.13.2",
     "uglify-js": "^3.6.0",
     "webpack": "^4.35.3",

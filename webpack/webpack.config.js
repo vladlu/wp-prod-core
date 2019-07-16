@@ -1,6 +1,7 @@
 const path = require( 'path' ),
 
     MiniCssExtractPlugin = require( 'mini-css-extract-plugin' ),
+    postcssPresetEnv     = require( 'postcss-preset-env' ),
     autoprefixer         = require( 'autoprefixer' ),
     cssnano              = require( 'cssnano' );
 
@@ -59,6 +60,7 @@ const Main = {
                         options: {
                             ident: 'postcss',
                             plugins: [
+                                postcssPresetEnv(),
                                 autoprefixer(),
                                 cssnano(),
                             ]
