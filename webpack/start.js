@@ -63,7 +63,7 @@ if ( fs.existsSync( '../.rules.d/webpack.tsv' ) ) {
 
     webpack( require( './webpack.config' ), ( err, stats ) => {
         if ( err || stats.hasErrors() ) {
-            console.error( 'Webpack: FAIL\nRun "npx webpack" in "wp-prod/webpack" directory to get more info.' );
+            console.error( 'Webpack: FAIL\nRun "npx webpack" in "wp-prod-core/webpack" directory to get more info.' );
         } else {
             console.log( 'Webpack: OK' );
         }

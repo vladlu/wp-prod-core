@@ -82,4 +82,4 @@ done < "../rules"
 
 # Expansions.
 
-find "$rules_dir" -mindepth 1 -exec bin/replace.sh '\[m\]' "dev/wp-prod/wp-prod/webpack/node_modules" {} \;
+find "$rules_dir" -mindepth 1 -exec bin/replace.sh '\[m\]' "dev/wp-prod/wp-prod-core/webpack/node_modules" {} \;

@@ -1,5 +1,5 @@
 {
-  "name": "wp-prod",
+  "name": "wp-prod-core",
   "version": "1.0.0",
   "scripts": {
     "start": "node start.js"

@@ -1,6 +1,8 @@
 # About
 
-[under construction]
+This is a dev system for WordPress developers which makes life easier. 
+
+Just create rules and run it.
 
 # How to use
 
@@ -41,7 +43,7 @@
 
 ### Expansions
 
-* `[m]` – dev/wp-prod/wp-prod/webpack/node_modules
+* `[m]` – dev/wp-prod/wp-prod-core/webpack/node_modules
 
 ### Notes
 
@@ -58,4 +60,4 @@
 
 Version: 1.13.0
 
-License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)
+License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
