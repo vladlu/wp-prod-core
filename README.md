@@ -24,6 +24,8 @@ This is a core for [wp-prod](https://github.com/vladlu/wp-prod/) system.
     install
         npm_module_name
 
+You can see a sample of rules in [rules.sample](https://github.com/vladlu/wp-prod-core/blob/master/rules.sample) file.
+
 ### What does `webpack` rule do?
  
     JS:  babel (with minification)
@@ -50,6 +52,6 @@ This is a core for [wp-prod](https://github.com/vladlu/wp-prod/) system.
 
 #
 
-Version: 1.14.3
+Version: 1.14.4
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
