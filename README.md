@@ -58,6 +58,6 @@ Just create rules and run it.
 
 #
 
-Version: 1.13.0
+Version: 1.14.0
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
