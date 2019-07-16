@@ -11,30 +11,30 @@ A core for the [wp-prod](https://github.com/vladlu/wp-prod/) system.
 - You can use comments in any desired format — only the lines that contain one of the rules in the first argument will be interpreted.
 
 ### The list of available rules
+```
+copy
+    from  to
 
-    copy
-        from  to
+uglifyjs
+    from  [to]
 
-    uglifyjs
-        from  [to]
+webpack
+    from  [to]
 
-    webpack
-        from  [to]
-
-    install
-        npm_module_name
-
+install
+    npm_module_name
+```
 You can see a sample of rules in [rules.sample](https://github.com/vladlu/wp-prod-core/blob/master/rules.sample) file.
 
-### What does `webpack` rule do?
- 
-    JS:  babel (with minification)
-    CSS: postcss-preset-env -> autoprefixer -> cssnano
-    
-    ____________________________
-    
-    browserslist: cover 95%
+### What does the `webpack` rule do?
+```
+JS:  babel (with minification)
+CSS: postcss-preset-env -> autoprefixer -> cssnano
 
+____________________________
+
+browserslist: cover 95%
+```
 ### Expansions
 
 * `[m]` – dev/wp-prod/wp-prod-core/webpack/node_modules
@@ -52,6 +52,6 @@ You can see a sample of rules in [rules.sample](https://github.com/vladlu/wp-pro
 
 #
 
-Version: 1.14.5
+Version: 1.14.6
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
