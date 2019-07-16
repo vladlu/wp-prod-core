@@ -1,6 +1,6 @@
 # About
 
-This is a core for [wp-prod](https://github.com/vladlu/wp-prod/) system. 
+A core for the [wp-prod](https://github.com/vladlu/wp-prod/) system. 
 
 # Rules
 
@@ -52,6 +52,6 @@ You can see a sample of rules in [rules.sample](https://github.com/vladlu/wp-pro
 
 #
 
-Version: 1.14.4
+Version: 1.14.5
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
