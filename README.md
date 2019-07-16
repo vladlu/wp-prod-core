@@ -45,11 +45,11 @@ This is a core for [wp-prod](https://github.com/vladlu/wp-prod/) system.
     with the same name but with `.min` before its extension,
     so `file.css` will generate a `file.min.css` file.
     
-  - It uses browserslist with `cover 95%` query. As for now, it can't
+  - It uses browserslist with a `cover 95%` query. As for now, it can't
     be changed in a convenient way.
 
 #
 
-Version: 1.14.0
+Version: 1.14.3
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
