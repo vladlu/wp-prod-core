@@ -44,11 +44,13 @@
   - For `uglifyjs` and `webpack` rules:   
 
     When a single `from` is used: it generates a file 
-    with the same name but with `.min` before the extension,
-    so `file.css` generates `file.min.css`.
+    with the same name but with `.min` before its extension,
+    so `file.css` will generate a `file.min.css` file.
+    
+  - It uses browserslist with `cover 95%`. As for now, it can't be changed in a convenient way.
 
 #
 
-Version: 1.11.16
+Version: 1.12.0
 
 License: [MIT](https://github.com/vladlu/wp-prod/blob/master/LICENSE)
