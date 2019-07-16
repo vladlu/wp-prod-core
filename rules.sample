@@ -1,0 +1,39 @@
+plugin
+
+
+webpack		public/scripts/the-guide.js
+
+webpack		admin/scripts/menu-customize.js
+webpack		admin/scripts/meta-boxes.js
+webpack		admin/scripts/tours-list-table.js
+
+
+webpack		public/styles/main.css
+
+webpack		admin/styles/menu-customize.css
+webpack		admin/styles/meta-boxes.css
+webpack		admin/styles/tours-list-table.css
+
+
+# Libraries
+
+
+## CodeMirror
+
+
+install 	codemirror
+
+
+uglifyjs	[m]/codemirror/lib/codemirror.js	libs/codemirror/codemirror.js
+uglifyjs	[m]/codemirror/mode/css/css.js		libs/codemirror/css.js
+
+webpack		[m]/codemirror/lib/codemirror.css	libs/codemirror/codemirror.css
+
+
+## jQuery UI Touch Punch
+
+
+install 	jquery-ui-touch-punch
+
+
+copy		[m]/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js	libs/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js
