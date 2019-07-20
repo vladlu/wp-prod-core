@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+##
+# A script that does the main routine of wp-prod-core.
+##
+
 set -Eeuo pipefail
 trap 'echo >&2 "ERROR on line $LINENO ($(tail -n+$LINENO $0 | head -n1)). Terminated."' ERR
 

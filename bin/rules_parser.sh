@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+##
+# Parses the rules. Chews them for another script.
+##
+
 set -Eeuo pipefail
 trap 'echo >&2 "ERROR on line $LINENO ($(tail -n+$LINENO $0 | head -n1)). Terminated."' ERR
 
