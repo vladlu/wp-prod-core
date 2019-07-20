@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 ##
-# Parses the rules. Chews them for another script.
+# Parses the rules. Chews them for another scripts.
+#
+# @param $1 Directory: Where the rules are located.
+# @param $2 Directory: Root of the project.
+# @param $3 Type of the project (theme or plugin).
 ##
 
 set -Eeuo pipefail

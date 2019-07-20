@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
 ##
-# A core that implements expansions functionality. 
+# A core that implements replacement (deprecated) and expansions functionality. 
 #
-# Just parses for the passed text and replaces it with another passed text in the passed file.
+# Just parses the passed file(name), and replace there one passed text with another one.
+#
+# @param $1 Replace from.
+# @param $2 Replace to.
+# @param $3 A file to make the replacement.
 ##
 
 set -Eeuo pipefail
