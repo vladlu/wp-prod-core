@@ -71,8 +71,7 @@ do
         fi
 
         # For themes.
-        if [[ $(echo "$line" | awk "$awk_delimiter" '{print $2}') == "style.css" ]] &&
-           [[ -f "$rules_dir/theme" ]] &&
+        if [[ -f "$rules_dir/theme" ]] &&
            [[ -f "$project_ROOT/style.dev.css" ]]; then
             echo -e "style.css\t../../../../style.dev.css" >> "$file"
             continue
