@@ -20,7 +20,12 @@ awk_delimiter="-F[ \t]*(\t)+[ \t]*"
 mkdir "$rules_dir"
 
 
-while IFS="" read -r line || [ -n "$line" ]
+if [[ "$type" == "theme" ]]; then
+    touch "$rules_dir/theme"
+fi
+
+
+while IFS="" read -r line || [[ -n "$line" ]]
 do
     cmd=$(echo "$line" | awk "$awk_delimiter" '{ print $1}')
     file="$rules_dir/$cmd.tsv"
@@ -65,19 +70,15 @@ do
             line=$( echo -e "$column1 \t $column2 \t $column3" )
         fi
 
-
+        # For themes.
         if [[ $(echo "$line" | awk "$awk_delimiter" '{print $2}') == "style.css" ]] &&
-           [[ "$type" == "theme" ]]; then
-            if [[ ! -f "$project_ROOT/style.dev.css" ]]; then
-                touch "$rules_dir/theme_style_css"
-
-                echo -e "style.css\t../../../../style.dev.css" >> "$file"
-                continue
-             else
-                continue
-             fi
+           [[ -f "$rules_dir/theme" ]] &&
+           [[ -f "$project_ROOT/style.dev.css" ]]; then
+            echo -e "style.css\t../../../../style.dev.css" >> "$file"
+            continue
+        else
+            continue
         fi
-
 
         echo "$line" | awk "$awk_delimiter" '{print $3 "\t" "../../../../" $2}' >> "$file";;
 
@@ -91,4 +92,4 @@ done < "../rules"
 
 # Expansions.
 
-find "$rules_dir" -mindepth 1 -exec bin/replace.sh '\[m\]' "dev/wp-prod/wp-prod-core/webpack/node_modules" {} \;
+find "$rules_dir" -mindepth 1 -exec 'bin/replace.sh' '\[m\]' 'dev/wp-prod/wp-prod-core/webpack/node_modules' {} \;
