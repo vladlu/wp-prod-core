@@ -58,6 +58,6 @@ browserslist: cover 95%
 
 #
 
-Version: 1.14.11
+Version: 1.14.12
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
