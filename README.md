@@ -47,11 +47,17 @@ browserslist: cover 95%
     with the same name but with `.min` before its extension,
     so `file.css` will generate a `file.min.css` file.
     
+  - For `theme`s: 
+  
+    You don't need to specify the `style.css` file anywhere in the rules.
+  It will be automatically paseed through the babel using the CSS chain above.
+  The previous `style.css` will be renamed to `style.dev.css` if you have not done it.
+    
   - It uses browserslist with a `cover 95%` query. As for now, it can't
     be changed in a convenient way.
 
 #
 
-Version: 1.14.10
+Version: 1.14.11
 
 License: [MIT](https://github.com/vladlu/wp-prod-core/blob/master/LICENSE)
