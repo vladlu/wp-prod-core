@@ -22,12 +22,18 @@ mkdir "$rules_dir"
 
 if [[ "$type" == "theme" ]]; then
     touch "$rules_dir/theme"
+
+    if [[ -f "$project_ROOT/style.dev.css" ]]; then
+        echo -e "style.css\t../../../../style.dev.css" >> "$rules_dir/webpack.tsv"
+    fi
+elif [[ "$type" == "plugin" ]]; then
+    touch "$rules_dir/plugin"
 fi
 
 
 while IFS="" read -r line || [[ -n "$line" ]]
 do
-    cmd=$(echo "$line" | awk "$awk_delimiter" '{ print $1}')
+    cmd=$(echo "$line" | awk "$awk_delimiter" '{print $1}')
     file="$rules_dir/$cmd.tsv"
 
     case "$cmd" in
@@ -68,15 +74,6 @@ do
                     # Adds dev before the extension so the origin file will be renamed to it on prod conversion.
             column3="${column2%.$extension}.min.$extension"
             line=$( echo -e "$column1 \t $column2 \t $column3" )
-        fi
-
-        # For themes.
-        if [[ -f "$rules_dir/theme" ]] &&
-           [[ -f "$project_ROOT/style.dev.css" ]]; then
-            echo -e "style.css\t../../../../style.dev.css" >> "$file"
-            continue
-        else
-            continue
         fi
 
         echo "$line" | awk "$awk_delimiter" '{print $3 "\t" "../../../../" $2}' >> "$file";;
